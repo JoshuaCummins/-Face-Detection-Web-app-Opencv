@@ -19,29 +19,26 @@ def detect_face(img):
         
 	return face_img
 	
-def main():
-    """Edge Detection App"""
 
-    st.title("Face detection")
 
-    html_temp = """
-    <body style="background-color:red;">
-    <div style="background-color:teal ;padding:10px">
-    <h2 style="color:white;text-align:center;">Face Recognition WebApp</h2>
-    </div>
-    </body>
-    """
-    st.markdown(html_temp, unsafe_allow_html=True)
+st.title("Face detection")
 
-    image_file = st.file_uploader("Upload Image", type=['jpg', 'png', 'jpeg'])
-    if image_file is not None:
-        img = Image.open(image_file)
-        st.text("Original Image")
-        st.image(img, use_column_width=True)
+html_temp = """
+<body style="background-color:red;">
+<div style="background-color:teal ;padding:10px">
+<h2 style="color:white;text-align:center;">Face Recognition WebApp</h2>
+</div>
+</body>
+"""
+st.markdown(html_temp, unsafe_allow_html=True)
 
-    if st.button("Compute"):
-        result_img= detect_face(img)
-        st.image(result_img, use_column_width=True)
-		
-if __name__ == '__main__':
-    main()
+image_file = st.file_uploader("Upload Image", type=['jpg', 'png', 'jpeg'])
+if image_file is not None:
+	img = Image.open(image_file)
+	st.text("Original Image")
+	st.image(img, use_column_width=True)
+
+if st.button("Compute"):
+	result_img= detect_face(img)
+	st.image(result_img, use_column_width=True)
+	

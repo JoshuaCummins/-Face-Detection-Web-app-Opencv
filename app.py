@@ -35,9 +35,9 @@ image_file = st.file_uploader("Upload Image", type=['jpg', 'png', 'jpeg'])
 if image_file is not None:
 	img = Image.open(image_file)
 	st.text("Original Image")
-	st.image(img, use_column_width=True)
+	st.image(img)
 
 if st.button("Compute"):
 	result_img= detect_face(img)
-	st.image(result_img, use_column_width=True)
+	st.image(result_img)
 	
